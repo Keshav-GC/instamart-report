@@ -1,1 +1,66 @@
-ferf
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Insights Aggregator</title>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 20px; 
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        h1 { 
+            color: #0056b3;
+        }
+        #fileInput { 
+            display: block; 
+            margin-top: 20px; 
+        }
+        #processButton {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        #processButton:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        #status {
+            font-style: italic;
+            margin-top: 15px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Brand Insights Aggregator</h1>
+    <p>
+        This tool will process your Brand Insights CSV file to:
+        <ol>
+            <li>Drop <strong>City</strong>, <strong>Product Dimension (PRODUCT_NAME)</strong>, <strong>L1_CATEGORY</strong>, and <strong>L2_CATEGORY</strong>.</li>
+            <li>Aggregate the data by all other descriptive columns.</li>
+            <li>Recalculate <strong>TOTAL_CTR</strong>, <strong>A2C_RATE</strong>, and <strong>TOTAL_ROI</strong>.</li>
+        </ol>
+    </p>
+
+    <input type="file" id="fileInput" accept=".csv">
+
+    <button id="processButton" disabled>Process and Download</button>
+
+    <div id="status">Please select your CSV file.</div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/papaparse/5.3.2/papaparse.min.js"></script>
+    
+    <script src="script.js"></script>
+
+</body>
+</html>
